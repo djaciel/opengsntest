@@ -97,6 +97,8 @@ describe('GSN Relayer test', () => {
     const NEXERA_TOKEN_ADDRESS = '0x57F0A442216af7b2480a94E9E7E7af2A4217c271'
 
     // nexera dev relay server for mumbai testnet
+    // more relay urls are needed for each chain
+    // this data could exist on the nexera registry
     const RELAYER_URL = 'https://relay-server-mumbai-dev.nexera.id/'
 
     const mumbaiProvider = new ethers.providers.JsonRpcProvider(
@@ -116,6 +118,7 @@ describe('GSN Relayer test', () => {
     const api_signer = ethers.Wallet.createRandom().connect(mumbaiProvider)
 
     // user GSN provider used just to sign the transaction using the gsn stuff
+    // this provider would be returned by the Web3UserV1
     const user_GSN = await RelayProvider.newEthersV5Provider({
       provider: user_signer,
       config: {
